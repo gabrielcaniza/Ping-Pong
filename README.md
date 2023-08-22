@@ -29,4 +29,4 @@ License
 This project is licensed under the MIT License.
 
 Enjoy playing ping-pong! If you have any questions or suggestions, feel free to get in touch or open an issue.
-Link: 
+Link: https://gabrielcaniza.github.io/Ping-Pong/
