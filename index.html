@@ -71,11 +71,15 @@
         y: 100,
         w: line.w,
         h: 200,
+        _move: function () {
+            this.y = ball.y
+        },
 
         draw() {
             //desenho raquete direita
             //x=largura do campo- largura da linha-10
             canvasCtx.fillRect(this.x, this.y, this.w, this.h)
+            this._move()
         }
     }
 
@@ -159,6 +163,7 @@
         mouse.x = e.pageX
         mouse.y = e.pageY
     })
+
 </script>
 
 </html>
