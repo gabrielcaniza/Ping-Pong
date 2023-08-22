@@ -57,14 +57,14 @@
         _move: function () {
             this.y = mouse.y - this.h / 2
         },
-        draw() {
-            //desenho raquete esquerda
-            //x=largura do campoo, y=0, linewidth=expessura da linha,A=altura do campo
+        draw: function () {
             canvasCtx.fillStyle = "#ffffff"
             canvasCtx.fillRect(this.x, this.y, this.w, this.h)
-            this._move
-        }
+
+            this._move()
+        },
     }
+
     const rightPaddle = {
 
         x: field.w - line.w - gapX,
@@ -155,7 +155,7 @@
 
     setup()
     main()
-    canvasEl.addEventListener("mousemove", function (e) {
+    canvasEL.addEventListener("mousemove", function (e) {
         mouse.x = e.pageX
         mouse.y = e.pageY
     })
