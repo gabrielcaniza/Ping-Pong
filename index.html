@@ -37,7 +37,6 @@
             canvasCtx.fillRect(0, 0, this.w, this.h)
         },
     }
-
     const line = {
 
         w: 15,
@@ -47,7 +46,6 @@
             //const significa que é constante o codigo não muda
             canvasCtx.fillStyle = "#ffffff"
             canvasCtx.fillRect(field.w / 2 - this.w / 2, 0, this.w, this.h)
-
         },
     }
     const leftPaddle = {
@@ -61,9 +59,6 @@
             canvasCtx.fillStyle = "#ffffff"
             canvasCtx.fillRect(this.x, this.y, this.w, this.h)
         }
-
-
-
     }
     const rightPaddle = {
 
@@ -76,7 +71,6 @@
             //desenho raquete direita
             //x=largura do campo- largura da linha-10
             canvasCtx.fillRect(this.x, this.y, this.w, this.h)
-
         }
     }
 
@@ -93,22 +87,27 @@
             canvasCtx.fillText(this.computer, field.w / 4 + field.w / 2, 4, 50)
 
         }
-
-
-
     }
     const ball =
     {
         x: 350,
         y: 120,
         r: 20,
+        //velocidade
+        speed: 5,
+        //animação da bola
+        _move: function () {
+            this.x += 1 * this.speed
+            this.y += 1* this.speed
+        },
+
         draw: function () {
             canvasCtx.beginPath()
+            canvasCtx.fillStyle = "#ffffff"
             canvasCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
             canvasCtx.fill()
-
+            this._move()
         }
-
     }
 
     function setup() {
@@ -118,8 +117,6 @@
         canvasEL.width = canvasCtx.width = field.w
         canvasEL.height = canvasCtx.height = field.h
     }
-
-
     function draw() {
         field.draw()
         line.draw()
@@ -135,7 +132,8 @@
 
     setup()
     draw()
-
+    //animação da bola
+    window.setInterval(draw, 1000 / 60)
 </script>
 
 </html>
