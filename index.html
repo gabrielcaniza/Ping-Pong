@@ -71,10 +71,18 @@
         y: 100,
         w: line.w,
         h: 200,
+        speed: 5,
         _move: function () {
+            if (this.y + this.h / 2 < ball.y + ball.r) {
+                this.y += this.speed
+            } else {
+                this.y -= this.speed
+            }
             this.y = ball.y
         },
-
+        speedup: function () {
+            this.speed+=2
+        },
         draw() {
             //desenho raquete direita
             //x=largura do campo- largura da linha-10
@@ -156,10 +164,11 @@
             this.directionY *= -1
         },
         _speedup: function () {
-            this.speed += 3
+            this.speed += 2
         },
         _pointUp: function () {
             this._speedup()
+            rightPaddle.speedup()
             this.x = field.w / 2
             this.y = field.h / 2
         },
